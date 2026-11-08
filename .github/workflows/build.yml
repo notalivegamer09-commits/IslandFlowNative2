@@ -22,10 +22,11 @@ jobs:
 
       - name: Setup Android
         uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools'
 
       - name: Install SDK
         run: |
-          sdkmanager --sdk_root="$ANDROID_HOME" --licenses
           sdkmanager --sdk_root="$ANDROID_HOME" "platforms;android-35" "build-tools;35.0.0"
 
       - name: Setup Gradle
